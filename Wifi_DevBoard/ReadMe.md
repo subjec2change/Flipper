@@ -6,6 +6,11 @@ Quick start: Connect to the SSID `blackmagic` using the password `iamwitcher` or
 
 [Official schematics](https://docs.flipperzero.one/development/hardware/wifi-debugger-module/schematics) can be found in the Official Flipper docs. A [PDF version](https://github.com/UberGuidoZ/Flipper/blob/main/Wifi_DevBoard/Flipper_Zero_WI-FI_Module_V1_Schematic.PDF) is also available.
 
+# ESP32 Flasher (from Flipper)
+
+You can flash from the Flipper without a computer at all thanks to [Cococode's (aka 0xchocolate) utility](https://github.com/0xchocolate/flipperzero-esp-flasher).<br>
+The files you'll need can be [found here](https://github.com/UberGuidoZ/Flipper/tree/main/Wifi_DevBoard/apps_data/esp_flasher) with a [vid walkthrough here](https://youtu.be/Kme-yWL14N8) (thanks TalkingSasquach!)
+
 # ESP32 Wi-Fi Pentest Tool
 
 Check out [Frog's write-up](https://github.com/FroggMaster/ESP32-Wi-Fi-Penetration-Tool) and build for quick and easy flashing! Seriously, it's basically just a double-click now thanks to some error checking and automation. ([You're welcome!](https://github.com/FroggMaster/ESP32-Wi-Fi-Penetration-Tool/compare/v1.0...v1.1)).
@@ -30,11 +35,9 @@ Sequoia has been kind enough to create a [web flasher](https://sequoiasan.github
 
 Another deauther option can be found at [HEX0DAYS repo over here](https://github.com/HEX0DAYS/FlipperZero-PWNDTOOLS)! (Full instructions included.)
 
-# [Marauder](https://github.com/justcallmekoko/ESP32Marauder) install information<br>
+# [Marauder](https://github.com/justcallmekoko/ESP32Marauder) install information (easy flash for Windows: [HERE](https://github.com/UberGuidoZ/Flipper/tree/main/Wifi_DevBoard/FZ_Marauder_Flasher))
 
-## New easy flash tool for Windows now available! [CLICK HERE](https://github.com/UberGuidoZ/Flipper/tree/main/Wifi_DevBoard/FZ_Marauder_Flasher)
-
-Direct from the dev WillStunForFood on Discord - check out [his video walkthrough](https://www.youtube.com/watch?v=_YLTpNo5xa0) too!:
+Direct from the dev WillStunForFood (aka JustCallMeKoko) on Discord - check out [his video walkthrough](https://www.youtube.com/watch?v=_YLTpNo5xa0) too!:
 
 - Plug the WiFi dev board directly into your PC
 - Upload the MarauderOTA firmware from source via Arduino IDE
@@ -148,7 +151,8 @@ I've had so many asking for me to add this.<br>
 **BTC**: `3AWgaL3FxquakP15ZVDxr8q8xVTc5Q75dS`<br>
 **BCH**: `17nWCvf2YPMZ3F3H1seX8T149Z9E3BMKXk`<br>
 **ETH**: `0x0f0003fCB0bD9355Ad7B124c30b9F3D860D5E191`<br>
-**LTC**: `M8Ujk52U27bkm1ksiWUyteL8b3rRQVMke2`
+**LTC**: `M8Ujk52U27bkm1ksiWUyteL8b3rRQVMke2`<br>
+**PayPal**: `uberguidoz@gmail.com`
 
 So, here it is. All donations of *any* size are humbly appreciated.<br>
 ![Flipper_Clap](https://user-images.githubusercontent.com/57457139/183561789-2e853ede-8ef7-41e8-a67c-716225177e5d.jpg) ![Flipper_OMG](https://user-images.githubusercontent.com/57457139/183561787-e21bdc1e-b316-4e67-b327-5129503d0313.jpg)

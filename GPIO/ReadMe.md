@@ -1,7 +1,10 @@
 # Documenting adventures with the GPIO...
 
 Official [GPIO layout](https://miro.com/app/board/uXjVO_LaYYI=/) created by [Aleksandr Kutuzov](https://discord.com/channels/740930220399525928/765282833744265246/993107060172542012). Official documentation [is here](https://docs.flipperzero.one/gpio-and-modules)!<br>
-Check out some unofficial boards by [DrB0rk](https://github.com/DrB0rk/Flipper-Zero-Boards) and an extender by [Speexvocon](https://github.com/Speexvocon/FlipperZeroHeaderExtender)!
+
+# Connect an external CC1101 to your Flipper
+
+Check out [this excellent guide](https://github.com/quen0n/flipperzero-ext-cc1101) from quen0n on the hardware and configurations needed to increase your SubGHz range!
 
 # Sentry Safe plugin pinout
 
@@ -15,6 +18,8 @@ Plugin by [H4ckd4ddy](https://github.com/H4ckd4ddy/flipperzero-sentry-safe-plugi
 Plugin by [mothball187](https://github.com/mothball187/flipperzero-nrf24)  |  Affected devices from [Bastille research](https://www.bastille.net/research/vulnerabilities/mousejack/affected-devices)
 
 More info from [RogueMaster](https://github.com/RogueMaster/flipperzero-firmware-wPlugins/tree/unleashed/applications/mousejacker) and [Unleashed](https://github.com/Eng1n33r/flipperzero-firmware/blob/dev/documentation/NRF24.md). (Both include the plugin in their firmware releases.)
+
+[Firmware and instructions](https://github.com/emptythevoid/flipperzero/tree/main/nrf24) to downgrade a receiver (thanks emptythevoid!)
 
 2/A7 on FZ goes to MOSI/6 on NRF24<br>
 3/A6 on FZ goes to MISO/7 on NRF24<br>
@@ -50,7 +55,8 @@ NRF24: 9 or 10 (VCC) to FZ 9 (3v3)
 
 ![ESP32-WROOM](https://user-images.githubusercontent.com/57457139/182290985-54d00e1e-dd3f-4efd-a66f-4d6b8e8c2ed2.jpg)
 
-NOTE: Use `old_hardware.bin` if flashing Marauder onto the ESP32-WROOM (thanks wyldgoat!)
+NOTE: Use `old_hardware.bin` if flashing Marauder onto the ESP32-WROOM (thanks wyldgoat!)<br>
+[Easy Flasher (Windows / Linux / Mac) available here](https://github.com/UberGuidoZ/Flipper/tree/main/Wifi_DevBoard/FZ_Marauder_Flasher/ESP32-WROOM).
 
 ![wyldgoat](https://user-images.githubusercontent.com/57457139/182552144-46abf993-160e-42e2-8dde-466da146b16d.png)<br>
 ![bobo_dudu](https://user-images.githubusercontent.com/57457139/182552153-9c50f817-8b8c-4d31-8d62-3fe8fca7a48b.png)
@@ -113,7 +119,7 @@ Switch between UART Pins 13/14 and 15/16 setting in FlipperZero<br>
 
 Picture includes wiring pinout for the SD card mod too!
 
-# ESP32-CAM (Camera)
+# ESP32-CAM (Camera) - [FAP FILE HERE](https://github.com/Z4urce/flipperzero-camera/)!
 
 ![ESP32-CAM](https://user-images.githubusercontent.com/57457139/182571081-81df66a8-a536-426f-9ee0-ee277da5ef0a.png)
 
@@ -220,6 +226,51 @@ GND (-, GND, black wire)	8, 18 (GND)
 DATA (OUT, S, yellow wire)	2-7, 10, 12-17 (to choose from)
 ```
 https://github.com/quen0n/FipperZero-DHT-Monitor
+-----
+
+## UHF RFID YRM100 ([FAP / App here](https://github.com/frux-c/uhf_rfid))
+```
+YRM100: 1 (VCC) -> FZ: 1 (5V)
+YRM100: 2 (RXD) -> FZ: 13 or 15 (these are TX pins)
+YRM100: 3 (TXD) -> FZ: 14 or 16 (these are RX pins)
+YRM100: 4 (EN)  -> FZ: 9 (3.3V)
+YRM100: 5 (GND) -> FZ: 8 or 11 or 18 (GND)
+
+Switch between UART Pins 13/14 and 15/16 setting in:
+Flipper -> GPIO -> USB-UART Bridge -> LEFT -> UART Pins
+
+Also make sure to enable 5V in Flipper -> GPIO
+```
+![Pinout](https://github.com/UberGuidoZ/Flipper/assets/57457139/522764fb-db90-4bc9-b46b-9eb0c15f5d75)
+![Schematic](https://github.com/UberGuidoZ/Flipper/assets/57457139/0d685f28-7b80-4657-8ccd-af50da553721)
+![Front](https://github.com/UberGuidoZ/Flipper/assets/57457139/9e395d8f-92a9-488d-932a-5c7647da30dd)
+![Back](https://github.com/UberGuidoZ/Flipper/assets/57457139/44bfff6f-318a-4677-98fd-3acb6b20f722)
+
+Credit: [RekordNadoev](https://github.com/RekordNadoev) / [Issue 515](https://github.com/UberGuidoZ/Flipper/issues/515)
+-----
+
+## ServoTester ([Info/App](https://mhasbini.com/blog/servo-tester-flipper-zero.html))
+```
+VCC (none, +, VCC, red wire) -> Flipper 1 (5V)
+GND (-, GND, black/brown wire) -> Flipper 8 OR 18 (GND)
+DATA (OUT, S, yellow wire) -> Flipper 2
+
+Make sure to enable 5V in Flipper -> GPIO
+```
+![Servo](https://github.com/UberGuidoZ/Flipper/assets/57457139/f9cc7ef8-f97e-4489-9c38-f4403ae681a3)
+
+Credit: [RekordNadoev](https://github.com/RekordNadoev) / [Issue 515](https://github.com/UberGuidoZ/Flipper/issues/515)
+-----
+
+# Custom PCB's
+## Here's some repo's with designs for custom PCB's you can order or build using a prototype board.
+
+[DrB0rk](https://github.com/DrB0rk/Flipper-Zero-Boards)<br>
+[AWOK](https://github.com/AWOK559/Flipper_Zero_Boards)<br>
+[Speexvocon](https://github.com/Speexvocon/) ([ESP Expansion](https://github.com/Speexvocon/FlipperZeroESPexpansion) and [Header Extender](https://github.com/Speexvocon/FlipperZeroHeaderExtender))<br>
+[ushastoe](https://github.com/krolchonok/flipper-board)<br>
+[TheOtherLonestar](https://github.com/TheOtherLonestar/RS-232-UART-Flipper)<br>
+[Oleksii Kutuzov](https://github.com/oleksiikutuzov/flipperzero-flasher-board)
 
 -----
 
@@ -235,7 +286,8 @@ I've had so many asking for me to add this.<br>
 **BTC**: `3AWgaL3FxquakP15ZVDxr8q8xVTc5Q75dS`<br>
 **BCH**: `17nWCvf2YPMZ3F3H1seX8T149Z9E3BMKXk`<br>
 **ETH**: `0x0f0003fCB0bD9355Ad7B124c30b9F3D860D5E191`<br>
-**LTC**: `M8Ujk52U27bkm1ksiWUyteL8b3rRQVMke2`
+**LTC**: `M8Ujk52U27bkm1ksiWUyteL8b3rRQVMke2`<br>
+**PayPal**: `uberguidoz@gmail.com`
 
 So, here it is. All donations of *any* size are humbly appreciated.<br>
 ![Flipper_Clap](https://user-images.githubusercontent.com/57457139/183561789-2e853ede-8ef7-41e8-a67c-716225177e5d.jpg) ![Flipper_OMG](https://user-images.githubusercontent.com/57457139/183561787-e21bdc1e-b316-4e67-b327-5129503d0313.jpg)
